@@ -66,7 +66,7 @@ public class MyMethodAdapter extends MethodVisitor {
                 }
             }
             // 创建Object数组
-            mv.visitTypeInsn(ANEWARRAY, Type.getDescriptor(Object.class));
+            mv.visitTypeInsn(ANEWARRAY, Type.getInternalName(Object.class));
 
             // 方法第一个参数在局部变量表中的位置
             // 非静态方法排除this，即从1开始
