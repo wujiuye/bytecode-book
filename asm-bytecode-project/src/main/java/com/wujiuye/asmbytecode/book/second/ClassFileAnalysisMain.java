@@ -1,6 +1,7 @@
 package com.wujiuye.asmbytecode.book.second;
 
 import com.wujiuye.asmbytecode.book.second.type.ClassFile;
+import com.wujiuye.asmbytecode.book.second.type.CpInfo;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -8,6 +9,8 @@ import java.io.InputStream;
 import java.nio.ByteBuffer;
 
 public class ClassFileAnalysisMain {
+
+    private final static String TEXT_CLASS = "/Users/wjy/MyProjects/Java虚拟机字节码从入门到实战/bytecode-book/asm-bytecode-project/build/classes/java/main/com/wujiuye/asmbytecode/book/second/TestClass.class";
 
     public static ByteBuffer readFile(String classFilePath) throws Exception {
         File file = new File(classFilePath);
@@ -27,11 +30,22 @@ public class ClassFileAnalysisMain {
     }
 
     public static void main(String[] args) throws Exception {
-        ByteBuffer codeBuf = readFile("/Users/wjy/MyProjects/asm-bytecode-project/build/classes/java/main/com/wujiuye/asmbytecode/book/vmstack/RecursionAlgorithmMain.class");
+        ByteBuffer codeBuf = readFile(TEXT_CLASS);
         ClassFile classFile = ClassFileAnalysiser.analysis(codeBuf);
-        System.out.println(classFile.getMagic().toHexString());
-        System.out.println(classFile.getMinor_version().toInt());
-        System.out.println(classFile.getMagor_version().toInt());
+        checkCp(classFile);
+    }
+
+    private static void checkCp(ClassFile classFile) {
+        CpInfo[] cps = classFile.getConstant_pool();
+        int index = 1;
+        for (CpInfo cpInfo : cps) {
+            if (cpInfo == null) {
+                index++;
+                continue;
+            }
+            System.out.println("#" + index + "==>" + cpInfo.getClass().getName());
+            index++;
+        }
     }
 
 }

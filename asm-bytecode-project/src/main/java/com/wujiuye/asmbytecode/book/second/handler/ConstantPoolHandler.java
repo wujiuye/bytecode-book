@@ -4,6 +4,7 @@ import com.wujiuye.asmbytecode.book.second.type.ClassFile;
 import com.wujiuye.asmbytecode.book.second.type.CpInfo;
 import com.wujiuye.asmbytecode.book.second.type.U1;
 import com.wujiuye.asmbytecode.book.second.type.U2;
+import com.wujiuye.asmbytecode.book.second.type.cp.CONSTANT_Long_info;
 
 import java.nio.ByteBuffer;
 
@@ -26,6 +27,9 @@ public class ConstantPoolHandler implements BaseByteCodeHandler {
             cpInfo.read(codeBuf);
             // System.out.println("#" + (i + 1) + ":" + cpInfo);
             classFile.getConstant_pool()[i] = cpInfo;
+            if (cpInfo instanceof CONSTANT_Long_info) {
+                i++; // jump n+2
+            }
         }
     }
 
