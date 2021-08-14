@@ -3,11 +3,9 @@ package com.wujiuye.asmbytecode.book.second.type.cp;
 import com.wujiuye.asmbytecode.book.second.type.CpInfo;
 import com.wujiuye.asmbytecode.book.second.type.U1;
 import com.wujiuye.asmbytecode.book.second.type.U2;
-import lombok.Getter;
 
 import java.nio.ByteBuffer;
 
-@Getter
 public class CONSTANT_NameAndType_info extends CpInfo {
 
     private U2 name_index;
@@ -21,6 +19,14 @@ public class CONSTANT_NameAndType_info extends CpInfo {
     public void read(ByteBuffer codeBuf) throws Exception {
         name_index = new U2(codeBuf.get(), codeBuf.get());
         descriptor_index = new U2(codeBuf.get(), codeBuf.get());
+    }
+
+    public U2 getName_index() {
+        return name_index;
+    }
+
+    public U2 getDescriptor_index() {
+        return descriptor_index;
     }
 
     @Override

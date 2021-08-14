@@ -1,11 +1,8 @@
 package com.wujiuye.asmbytecode.book.fifth.visit;
 
-import lombok.Getter;
-
 import java.util.ArrayList;
 import java.util.List;
 
-@Getter
 public class FieldWriter implements FieldVisitor {
 
     private String access;
@@ -23,6 +20,22 @@ public class FieldWriter implements FieldVisitor {
     @Override
     public void visitAnnotation(String annotation, boolean runtime) {
         this.annotations.add("注解：" + annotation + "，" + runtime);
+    }
+
+    public String getAccess() {
+        return access;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDescriptor() {
+        return descriptor;
+    }
+
+    public List<String> getAnnotations() {
+        return annotations;
     }
 
 }

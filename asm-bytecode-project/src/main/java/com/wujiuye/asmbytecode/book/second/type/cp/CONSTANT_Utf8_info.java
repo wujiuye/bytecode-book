@@ -3,12 +3,10 @@ package com.wujiuye.asmbytecode.book.second.type.cp;
 import com.wujiuye.asmbytecode.book.second.type.CpInfo;
 import com.wujiuye.asmbytecode.book.second.type.U1;
 import com.wujiuye.asmbytecode.book.second.type.U2;
-import lombok.Getter;
 
 import java.nio.ByteBuffer;
 import java.nio.charset.StandardCharsets;
 
-@Getter
 public class CONSTANT_Utf8_info extends CpInfo {
 
     private U2 length;
@@ -23,6 +21,14 @@ public class CONSTANT_Utf8_info extends CpInfo {
         length = new U2(codeBuf.get(), codeBuf.get());
         bytes = new byte[length.toInt()];
         codeBuf.get(bytes, 0, length.toInt());
+    }
+
+    public U2 getLength() {
+        return length;
+    }
+
+    public byte[] getBytes() {
+        return bytes;
     }
 
     @Override

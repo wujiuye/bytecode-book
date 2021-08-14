@@ -1,11 +1,8 @@
 package com.wujiuye.asmbytecode.book.fifth.visit;
 
-import lombok.Getter;
-
 import java.util.ArrayList;
 import java.util.List;
 
-@Getter
 public class ClassWriter implements ClassVisitor {
 
     private int version;
@@ -59,6 +56,26 @@ public class ClassWriter implements ClassVisitor {
                     + " 局部变量表大小：" + methodWriter.getMaxLocalSize());
         }
         System.out.println("========= end   ========");
+    }
+
+    public int getVersion() {
+        return version;
+    }
+
+    public String getClassName() {
+        return className;
+    }
+
+    public String getAccess() {
+        return access;
+    }
+
+    public List<FieldWriter> getFieldWriters() {
+        return fieldWriters;
+    }
+
+    public List<MethodWriter> getMethodWriters() {
+        return methodWriters;
     }
 
 }

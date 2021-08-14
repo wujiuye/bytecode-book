@@ -1,10 +1,5 @@
 package com.wujiuye.asmbytecode.book.third.model;
 
-import lombok.Getter;
-import lombok.ToString;
-
-@Getter
-@ToString
 public class User {
 
     private String name;
@@ -31,4 +26,21 @@ public class User {
         this.phone = phone;
         return this;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public String getE_mail() {
+        return e_mail;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
 }

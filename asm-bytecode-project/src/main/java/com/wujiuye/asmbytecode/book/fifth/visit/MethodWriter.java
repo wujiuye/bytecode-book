@@ -1,8 +1,5 @@
 package com.wujiuye.asmbytecode.book.fifth.visit;
 
-import lombok.Getter;
-
-@Getter
 public class MethodWriter implements MethodVisitor {
 
     private String access;
@@ -21,6 +18,26 @@ public class MethodWriter implements MethodVisitor {
     public void visitMaxs(int maxStackSize, int maxLocalSize) {
         this.maxLocalSize = maxLocalSize;
         this.maxStackSize = maxStackSize;
+    }
+
+    public String getAccess() {
+        return access;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDescriptor() {
+        return descriptor;
+    }
+
+    public int getMaxStackSize() {
+        return maxStackSize;
+    }
+
+    public int getMaxLocalSize() {
+        return maxLocalSize;
     }
 
 }

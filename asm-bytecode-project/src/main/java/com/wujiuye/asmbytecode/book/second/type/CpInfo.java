@@ -1,17 +1,17 @@
 package com.wujiuye.asmbytecode.book.second.type;
 
 import com.wujiuye.asmbytecode.book.second.type.cp.*;
-import lombok.Getter;
-import lombok.Setter;
 
-@Getter
-@Setter
 public abstract class CpInfo implements ConstantInfoHandler {
 
     private U1 tag;
 
     protected CpInfo(U1 tag) {
         this.tag = tag;
+    }
+
+    public U1 getTag() {
+        return tag;
     }
 
     @Override

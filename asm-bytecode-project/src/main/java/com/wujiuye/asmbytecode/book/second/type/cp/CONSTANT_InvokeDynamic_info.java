@@ -3,11 +3,9 @@ package com.wujiuye.asmbytecode.book.second.type.cp;
 import com.wujiuye.asmbytecode.book.second.type.CpInfo;
 import com.wujiuye.asmbytecode.book.second.type.U1;
 import com.wujiuye.asmbytecode.book.second.type.U2;
-import lombok.Getter;
 
 import java.nio.ByteBuffer;
 
-@Getter
 public class CONSTANT_InvokeDynamic_info extends CpInfo {
 
     private U2 bootstrap_method_attr_index;
@@ -21,6 +19,14 @@ public class CONSTANT_InvokeDynamic_info extends CpInfo {
     public void read(ByteBuffer codeBuf) throws Exception {
         bootstrap_method_attr_index = new U2(codeBuf.get(), codeBuf.get());
         name_and_type_index = new U2(codeBuf.get(), codeBuf.get());
+    }
+
+    public U2 getName_and_type_index() {
+        return name_and_type_index;
+    }
+
+    public U2 getBootstrap_method_attr_index() {
+        return bootstrap_method_attr_index;
     }
 
     @Override
