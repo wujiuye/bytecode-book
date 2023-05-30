@@ -141,8 +141,8 @@ public class MyMethodAdapter extends MethodVisitor {
                             "(J)Ljava/lang/Long;", false);
                 } else if ("D".equals(type)) {
                     // double类型占两个slot
-                    localIndex += 2;
                     mv.visitVarInsn(DLOAD, localIndex);
+                    localIndex += 2;
                     mv.visitMethodInsn(INVOKESTATIC,
                             Type.getInternalName(Double.class),
                             "valueOf",
